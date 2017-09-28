@@ -206,7 +206,7 @@ class PostgresSearchBackend(SearchBackend):
 
         cursor.execute("""
             SELECT attname FROM pg_attribute
-            WHERE attrelid = (SELECT oid FROM pg_class WHERE relname = 'watson_searchentry') AND relnamespace = '{relnamespaceid}')  AND attname = 'search_tsv';
+            WHERE attrelid = (SELECT oid FROM pg_class WHERE relname = 'watson_searchentry' AND relnamespace = '{relnamespaceid}') AND attname = 'search_tsv';
         """.format(relnamespaceid=relnamespaceid))
         return bool(cursor.fetchall())
 
