@@ -191,7 +191,7 @@ class PostgresSearchBackend(SearchBackend):
             in escape_query(text, RE_POSTGRES_ESCAPE_CHARS).split()
         )
 
-    def is_installed(self):
+    def is_installed(self, schema_name="public"):
         """Checks whether django-watson is installed."""
         connection = connections[router.db_for_read(SearchEntry)]
 
